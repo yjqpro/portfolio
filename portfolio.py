@@ -229,9 +229,10 @@ def read_file(path, events):
 
 
 def main():
-    path = '<here input your folde>'
+    path = 'd:/WorkSpace/geek_quant/backtesting/result/slippage_size_1_drawdown_size_2_filter_False'
     if not os.path.exists(path):
         return 1
+    dfs = []
     for f in os.listdir(path):
         events = []
         read_file(os.path.join(path, f), events)
@@ -250,7 +251,10 @@ def main():
         for event in events:
             event.do(account)
 
-        print(account.to_df())
+        df = account.to_df()
+        df['instrument'] = f
+        dfs.append(df)
+    pd.concat(dfs).to_csv('result.csv')
 
 
 if __name__ == '__main__':
