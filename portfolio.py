@@ -130,6 +130,7 @@ class PositionDetail(object):
     def close(self, price, qty, update_pl):
         close_qty = min(self._leaves_qty, qty)
         self._leaves_qty = self._leaves_qty - close_qty
+        print(self._price, price, close_qty)
         if self._direction == "Buy":
             update_pl((price - self._price) * close_qty)
         else:
@@ -147,8 +148,14 @@ class FutureAccount(object):
         self._long_unfill = 0
         self._short_unfill = 0
         self._pl = 0.0
-        self._result = {'date':[], 'pl':[], 'long_position':[], 'short_position':[],'long_unfill':[],
-                'short_unfill':[]}
+        self._result = {
+            'date': [],
+            'pl': [],
+            'long_position': [],
+            'short_position': [],
+            'long_unfill': [],
+            'short_unfill': []
+        }
 
     def order(self, order_id, direction, price, qty):
         self._orders[order_id] = Order(direction, qty)
@@ -166,7 +173,7 @@ class FutureAccount(object):
 
         leaves_qty = qty
         while leaves_qty > 0 and len(close_positions) > 0:
-            leaves_qty = close_positions[0].close(price, qty, self.update_pl)
+            leaves_qty = close_positions[0].close(price, leaves_qty, self.update_pl)
             if close_positions[0]._leaves_qty == 0:
                 del close_positions[0]
             else:
@@ -194,10 +201,13 @@ class FutureAccount(object):
             assert (self._short_unfill >= 0)
 
     def settle(self, timestamp):
-        self._result['date'].append(datetime.datetime.fromtimestamp(timestamp/1000.0))
+        self._result['date'].append(
+            datetime.datetime.fromtimestamp(timestamp / 1000.0))
         self._result['pl'].append(self._pl)
-        self._result['long_position'].append(sum([pos._leaves_qty for pos in self._long_position]))
-        self._result['short_position'].append(sum([pos._leaves_qty for pos in self._short_position]))
+        self._result['long_position'].append(
+            sum([pos._leaves_qty for pos in self._long_position]))
+        self._result['short_position'].append(
+            sum([pos._leaves_qty for pos in self._short_position]))
         self._result['long_unfill'].append(self._long_unfill)
         self._result['short_unfill'].append(self._short_unfill)
 
@@ -254,7 +264,8 @@ def main():
         df = account.to_df()
         df['instrument'] = f
         dfs.append(df)
-    pd.concat(dfs).to_csv('result.csv')
+    print(dfs[0])
+    #  pd.concat(dfs).to_csv('result.csv')
 
 
 if __name__ == '__main__':
