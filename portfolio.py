@@ -229,7 +229,7 @@ def read_file(path, events):
 
 
 def main():
-    path = 'd:/WorkSpace/geek_quant/backtesting/result/slippage_size_1_drawdown_size_2_filter_False'
+    path = sys.argv[1]
     if not os.path.exists(path):
         return 1
     dfs = []
