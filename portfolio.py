@@ -229,7 +229,9 @@ def read_file(path, events):
 
 
 def main():
-    path = 'd:/WorkSpace/geek_quant/backtesting/result/slippage_size_1_drawdown_size_2_filter_False/'
+    path = '<here input your folde>'
+    if not os.path.exists(path):
+        return 1
     for f in os.listdir(path):
         events = []
         read_file(os.path.join(path, f), events)
