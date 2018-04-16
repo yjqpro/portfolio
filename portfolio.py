@@ -264,8 +264,7 @@ def main():
         df = account.to_df()
         df['instrument'] = f
         dfs.append(df)
-    print(dfs[0])
-    #  pd.concat(dfs).to_csv('result.csv')
+    pd.concat(dfs).to_csv('result.csv')
 
 
 if __name__ == '__main__':
