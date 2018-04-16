@@ -140,13 +140,14 @@ class PositionDetail(object):
 class FutureAccount(object):
     """Docstring for FutureAccount. """
 
-    def __init__(self):
+    def __init__(self, contract_multiple):
         self._orders = {}
         self._long_position = []
         self._short_position = []
         self._long_unfill = 0
         self._short_unfill = 0
         self._pl = 0.0
+        self._contract_multiple = contract_multiple
         self._result = {
             'date': [],
             'pl': [],
@@ -202,7 +203,7 @@ class FutureAccount(object):
     def settle(self, timestamp):
         self._result['date'].append(
             datetime.datetime.fromtimestamp(timestamp / 1000.0))
-        self._result['pl'].append(self._pl)
+        self._result['pl'].append(self._pl * self._contract_multiple)
         self._result['long_position'].append(
             sum([pos._leaves_qty for pos in self._long_position]))
         self._result['short_position'].append(
@@ -242,10 +243,16 @@ def main():
     if not os.path.exists(path):
         return 1
     dfs = []
+    product_infos = {}
+    with open('product_info.json', 'r') as f:
+        product_infos = json.load(f)
     for f in os.listdir(path):
         events = []
         read_file(os.path.join(path, f), events)
-        account = FutureAccount()
+        instrument = os.path.splitext(f)[0]
+        product_code = instrument.strip('0123456789')
+        assert product_code in product_infos, product_code
+        account = FutureAccount(product_infos[product_code]['contract_multiple'])
         datetime_from = datetime.date(2016, 12, 5)
         datetime_to = datetime.date(2017, 11, 23)
         for i in range((datetime_to - datetime_from).days + 1):
@@ -261,7 +268,7 @@ def main():
             event.do(account)
 
         df = account.to_df()
-        df['instrument'] = f
+        df['instrument'] = instrument
         dfs.append(df)
     pd.concat(dfs).to_csv('result.csv')
 

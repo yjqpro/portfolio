@@ -1,0 +1,262 @@
+{
+    "a": {
+        "Exchange": "dc",
+        "TickSize": 1.0,
+        "contract_multiple": 10
+    },
+    "ag": {
+        "Exchange": "sc",
+        "TickSize": 1.0,
+        "contract_multiple": 15
+    },
+    "al": {
+        "Exchange": "sc",
+        "TickSize": 5.0,
+        "contract_multiple": 5
+    },
+    "au": {
+        "Exchange": "sc",
+        "TickSize": 0.05,
+        "contract_multiple": 1000
+    },
+    "b": {
+        "Exchange": "dc",
+        "TickSize": 1.0,
+        "contract_multiple": 10
+    },
+    "bb": {
+        "Exchange": "dc",
+        "TickSize": 0.05,
+        "contract_multiple": 500
+    },
+    "bu": {
+        "Exchange": "sc",
+        "TickSize": 2.0,
+        "contract_multiple": 10
+    },
+    "c": {
+        "Exchange": "dc",
+        "TickSize": 1.0,
+        "contract_multiple": 10
+    },
+    "cf": {
+        "Exchange": "zc",
+        "TickSize": 5.0,
+        "contract_multiple": 5
+    },
+    "cs": {
+        "Exchange": "dc",
+        "TickSize": 1.0,
+        "contract_multiple": 10
+    },
+    "cu": {
+        "Exchange": "sc",
+        "TickSize": 10.0,
+        "contract_multiple": 5
+    },
+    "cy": {
+        "Exchange": "zc",
+        "TickSize": 5.0,
+        "contract_multiple": 5
+    },
+    "fb": {
+        "Exchange": "dc",
+        "TickSize": 0.05,
+        "contract_multiple": 500
+    },
+    "fg": {
+        "Exchange": "zc",
+        "TickSize": 1.0,
+        "contract_multiple": 20
+    },
+    "fu": {
+        "Exchange": "sc",
+        "TickSize": 1.0,
+        "contract_multiple": 50
+    },
+    "hc": {
+        "Exchange": "sc",
+        "TickSize": 1.0,
+        "contract_multiple": 10
+    },
+    "i": {
+        "Exchange": "dc",
+        "TickSize": 0.5,
+        "contract_multiple": 100
+    },
+    "ic": {
+        "Exchange": "zj",
+        "TickSize": 0.2,
+        "contract_multiple": 200
+    },
+    "if": {
+        "Exchange": "zj",
+        "TickSize": 0.2,
+        "contract_multiple": 300
+    },
+    "ih": {
+        "Exchange": "zj",
+        "TickSize": 0.2,
+        "contract_multiple": 300
+    },
+    "j": {
+        "Exchange": "dc",
+        "TickSize": 0.5,
+        "contract_multiple": 100
+    },
+    "jd": {
+        "Exchange": "dc",
+        "TickSize": 1.0,
+        "contract_multiple": 10
+    },
+    "jm": {
+        "Exchange": "dc",
+        "TickSize": 0.5,
+        "contract_multiple": 60
+    },
+    "jr": {
+        "Exchange": "zc",
+        "TickSize": 1.0,
+        "contract_multiple": 20
+    },
+    "l": {
+        "Exchange": "dc",
+        "TickSize": 5.0,
+        "contract_multiple": 5
+    },
+    "lr": {
+        "Exchange": "zc",
+        "TickSize": 1.0,
+        "contract_multiple": 20
+    },
+    "m": {
+        "Exchange": "dc",
+        "TickSize": 1.0,
+        "contract_multiple": 10
+    },
+    "ma": {
+        "Exchange": "zc",
+        "TickSize": 1.0,
+        "contract_multiple": 10
+    },
+    "ni": {
+        "Exchange": "sc",
+        "TickSize": 10.0,
+        "contract_multiple": 1
+    },
+    "oi": {
+        "Exchange": "zc",
+        "TickSize": 2.0,
+        "contract_multiple": 10
+    },
+    "p": {
+        "Exchange": "dc",
+        "TickSize": 2.0,
+        "contract_multiple": 10
+    },
+    "pb": {
+        "Exchange": "sc",
+        "TickSize": 5.0,
+        "contract_multiple": 5
+    },
+    "pm": {
+        "Exchange": "zc",
+        "TickSize": 1.0,
+        "contract_multiple": 50
+    },
+    "pp": {
+        "Exchange": "dc",
+        "TickSize": 1.0,
+        "contract_multiple": 5
+    },
+    "rb": {
+        "Exchange": "sc",
+        "TickSize": 1.0,
+        "contract_multiple": 10
+    },
+    "ri": {
+        "Exchange": "zc",
+        "TickSize": 1.0,
+        "contract_multiple": 20
+    },
+    "rm": {
+        "Exchange": "zc",
+        "TickSize": 1.0,
+        "contract_multiple": 10
+    },
+    "rs": {
+        "Exchange": "zc",
+        "TickSize": 1.0,
+        "contract_multiple": 10
+    },
+    "ru": {
+        "Exchange": "sc",
+        "TickSize": 5.0,
+        "contract_multiple": 10
+    },
+    "sf": {
+        "Exchange": "zc",
+        "TickSize": 2.0,
+        "contract_multiple": 5
+    },
+    "sm": {
+        "Exchange": "zc",
+        "TickSize": 2.0,
+        "contract_multiple": 5
+    },
+    "sn": {
+        "Exchange": "sc",
+        "TickSize": 10.0,
+        "contract_multiple": 1
+    },
+    "sr": {
+        "Exchange": "zc",
+        "TickSize": 1.0,
+        "contract_multiple": 10
+    },
+    "t": {
+        "Exchange": "zj",
+        "TickSize": 0.005,
+        "contract_multiple": 10000
+    },
+    "ta": {
+        "Exchange": "zc",
+        "TickSize": 2.0,
+        "contract_multiple": 5
+    },
+    "tf": {
+        "Exchange": "zj",
+        "TickSize": 0.005,
+        "contract_multiple": 10000
+    },
+    "v": {
+        "Exchange": "dc",
+        "TickSize": 5.0,
+        "contract_multiple": 5
+    },
+    "wh": {
+        "Exchange": "zc",
+        "TickSize": 1.0,
+        "contract_multiple": 20
+    },
+    "wr": {
+        "Exchange": "sc",
+        "TickSize": 1.0,
+        "contract_multiple": 10
+    },
+    "y": {
+        "Exchange": "dc",
+        "TickSize": 2.0,
+        "contract_multiple": 10
+    },
+    "zc": {
+        "Exchange": "zc",
+        "TickSize": 0.2,
+        "contract_multiple": 100
+    },
+    "zn": {
+        "Exchange": "sc",
+        "TickSize": 5.0,
+        "contract_multiple": 5
+    }
+}
