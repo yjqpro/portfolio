@@ -130,7 +130,6 @@ class PositionDetail(object):
     def close(self, price, qty, update_pl):
         close_qty = min(self._leaves_qty, qty)
         self._leaves_qty = self._leaves_qty - close_qty
-        print(self._price, price, close_qty)
         if self._direction == "Buy":
             update_pl((price - self._price) * close_qty)
         else:
