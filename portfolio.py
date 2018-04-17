@@ -181,7 +181,7 @@ class FutureAccount(object):
                     0]._leaves_qty
 
         if leaves_qty > 0:
-            open_positions.append(PositionDetail(order._direction, price, qty))
+            open_positions.append(PositionDetail(order._direction, price, leaves_qty))
 
         if order._direction == "Buy":
             self._long_unfill = self._long_unfill - qty
@@ -202,7 +202,7 @@ class FutureAccount(object):
 
     def settle(self, timestamp):
         self._result['date'].append(
-            datetime.datetime.fromtimestamp(timestamp / 1000.0))
+            datetime.datetime.utcfromtimestamp(timestamp / 1000.0))
         self._result['pl'].append(self._pl * self._contract_multiple)
         self._result['long_position'].append(
             sum([pos._leaves_qty for pos in self._long_position]))
@@ -257,9 +257,9 @@ def main():
         datetime_to = datetime.date(2017, 11, 23)
         for i in range((datetime_to - datetime_from).days + 1):
             day = datetime_from + datetime.timedelta(days=i)
-            ts = time.mktime(
-                datetime.datetime.combine(day, datetime.time(15, 0,
-                                                             0)).timetuple())
+            dt = datetime.datetime.combine(day, datetime.time(15, 0, 0))
+            dt = dt + datetime.timedelta(hours=8) # utc
+            ts = time.mktime(dt.timetuple())
             bisect.insort_right(events, DailySettle(int(ts * 1000)))
 
         assert (all(
