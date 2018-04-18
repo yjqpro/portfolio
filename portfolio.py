@@ -237,11 +237,7 @@ def read_file(path, events):
             else:
                 assert (False)
 
-
-def main():
-    path = sys.argv[1]
-    if not os.path.exists(path):
-        return 1
+def summary(path):
     dfs = []
     product_infos = {}
     with open('product_info.json', 'r') as f:
@@ -270,7 +266,15 @@ def main():
         df = account.to_df()
         df['instrument'] = instrument
         dfs.append(df)
-    pd.concat(dfs).to_csv('result.csv')
+    return pd.concat(dfs)
+
+def main():
+    path = sys.argv[1]
+    if not os.path.exists(path):
+        return 1
+    df = summary(path)
+    df.to_csv('daily_pl.csv')
+    df.groupby('instrument').last().to_csv('pl.csv')
 
 
 if __name__ == '__main__':
